@@ -58,6 +58,7 @@
                                     <color key="titleShadowColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="buscarPaisBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Vc-dl-FKO"/>
                                     <segue destination="TeC-2E-1Fv" kind="show" id="xal-Xw-yr5"/>
                                 </connections>
                             </button>
@@ -98,15 +99,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hcN-di-RWN"/>
+                    <connections>
+                        <outlet property="paisTextField" destination="Ki2-ye-Nc5" id="Mmh-3I-FiI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857.97101449275374" y="49.553571428571423"/>
         </scene>
-        <!--View Controller-->
+        <!--Data View Controller-->
         <scene sceneID="8Or-OI-pgD">
             <objects>
-                <viewController id="TeC-2E-1Fv" sceneMemberID="viewController">
+                <viewController id="TeC-2E-1Fv" customClass="DataViewController" customModule="covid_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Rb-5t-U9y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
