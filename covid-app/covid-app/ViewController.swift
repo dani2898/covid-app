@@ -34,9 +34,14 @@ extension ViewController: UITextFieldDelegate{
         
     @IBAction func buscarPaisBtn(_ sender: Any) {
         pais = paisTextField.text!
-        
-        performSegue(withIdentifier: "enviarDatos", sender: pais)
-        
+        if pais != ""{
+            performSegue(withIdentifier: "enviarDatos", sender: pais)
+        }
+        else{
+            let alert = UIAlertController(title: "Error", message: "Error en el país, revise que esté escrito correctamente.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         paisTextField.text=""
         
         

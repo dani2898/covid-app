@@ -6,6 +6,7 @@ class DataViewController: UIViewController{
     var covManager = covidManager()
     var recibirPais: String?
     @IBOutlet weak var imgPais: UIImageView!
+    @IBOutlet weak var paisLabel: UILabel!
     @IBOutlet weak var casosLabel: UILabel!
     @IBOutlet weak var muertesLabel: UILabel!
     @IBOutlet weak var recuperadosLabel: UILabel!
@@ -52,6 +53,8 @@ extension DataViewController: covidManagerDelegate{
             let imageData = try! Data(contentsOf: imageUrl)
             
             self.imgPais.image =  UIImage(data: imageData)
+            
+            self.paisLabel.text = covid.pais
             //self.tempMaximaLabel.text = "T. Max: " + String(clima.temperaturaMaxima)+"°C"
         }
         
