@@ -1,14 +1,16 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
-    var covManager = covidManager()
+    
+    var pais: String?
     
     @IBOutlet weak var paisTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
 }
@@ -31,12 +33,31 @@ extension ViewController: UITextFieldDelegate{
     }
         
     @IBAction func buscarPaisBtn(_ sender: Any) {
-        covManager.fetchCovid(nombrePais: paisTextField.text!)
+        pais = paisTextField.text!
+        
+        performSegue(withIdentifier: "enviarDatos", sender: pais)
+        
         paisTextField.text=""
+        
+        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if segue.identifier == "enviarDatos"{
+      	        
+              let destino = segue.destination as! DataViewController
+              destino.recibirPais = pais
+              
+          }
+    	
+    
         
+    }
+    
+
+
 }
+
 
 
 
